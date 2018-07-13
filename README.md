@@ -19,7 +19,7 @@ date 显示系统日期
 cal 2007 显示2007年的日历表 
 date 041217002007.00 设置日期和时间 - 月日时分年.秒 
 clock -w 将时间修改保存到 BIOS 
-
+~~~
 
 
 # 关机 (系统的关机、重启以及登出 ) 
@@ -35,7 +35,7 @@ logout 注销
 ~~~
 
 
-#文件和目录 
+# 文件和目录 
 ~~~shell
 cd /home 进入 '/ home' 目录' 
 cd .. 返回上一级目录 
@@ -73,7 +73,7 @@ find . -maxdepth 1 -name *.jpg -print -exec convert "{}" -resize 80x60 "thumbs/{
 ~~~
 
 
-#文件搜索 
+# 文件搜索 
 ~~~shell
 find / -name file1 从 '/' 开始进入根文件系统搜索文件和目录 
 find / -user user1 搜索属于用户 'user1' 的文件和目录 
@@ -88,7 +88,7 @@ which halt 显示一个二进制文件或可执行文件的完整路径
 ~~~
 
 
-#挂载一个文件系统 
+# 挂载一个文件系统 
 ~~~shell
 mount /dev/hda2 /mnt/hda2 挂载一个叫做hda2的盘 - 确定目录 '/ mnt/hda2' 已经存在 
 umount /dev/hda2 卸载一个叫做hda2的盘 - 先从挂载点 '/ mnt/hda2' 退出 
@@ -105,7 +105,7 @@ mount -t smbfs -o username=user,password=pass //WinClient/share /mnt/share 挂�
 ~~~
 
 
-#磁盘空间 
+# 磁盘空间 
 ~~~shell
 df -h 显示已经挂载的分区列表 
 ls -lSr |more 以尺寸大小排列文件和目录 
@@ -115,7 +115,7 @@ rpm -q -a --qf '%10{SIZE}t%{NAME}n' | sort -k1,1n 以大小为依据依次显示
 dpkg-query -W -f='${Installed-Size;10}t${Package}n' | sort -k1,1n 以大小为依据显示已安装的deb包所使用的空间 (ubuntu, debian类系统) 返回顶部索引 ^
 ~~~
 
-#用户和群组 
+# 用户和群组 
 ~~~shell
 groupadd group_name 创建一个新用户组 
 groupdel group_name 删除一个用户组 
@@ -132,7 +132,7 @@ grpck 检查 '/etc/passwd' 的文件格式和语法修正以及存在的群组
 newgrp group_name 登陆进一个新的群组以改变新创建文件的预设群组 返回顶部索引 ^
 ~~~
 
-#文件的权限 - 使用 "+" 设置权限，使用 "-" 用于取消 
+# 文件的权限 - 使用 "+" 设置权限，使用 "-" 用于取消 
 ~~~shell
 ls -lh 显示权限 
 ls /tmp | pr -T5 -W$COLUMNS 将终端划分成5栏显示 
@@ -149,8 +149,8 @@ chmod g+s /home/public 设置一个目录的SGID 位 - 类似SUID ，不过这�
 chmod g-s /home/public 禁用一个目录的 SGID 位 
 chmod o+t /home/public 设置一个文件的 STIKY 位 - 只允许合法所有人删除文件 
 chmod o-t /home/public 禁用一个目录的 STIKY 位 返回顶部索引 ^
-
-#文件的特殊属性 - 使用 "+" 设置权限，使用 "-" 用于取消 
+~~~
+# 文件的特殊属性 - 使用 "+" 设置权限，使用 "-" 用于取消 
 ~~~shell
 chattr +a file1 只允许以追加方式读写文件 
 chattr +c file1 允许这个文件能被内核自动压缩/解压 
@@ -163,7 +163,7 @@ lsattr 显示特殊的属性
 ~~~
 
 
-#打包和压缩文件 
+#  打包和压缩文件 
 ~~~shell
 bunzip2 file1.bz2 解压一个叫做 'file1.bz2'的文件 
 bzip2 file1 压缩一个叫做 'file1' 的文件 
@@ -189,7 +189,7 @@ unzip file1.zip 解压一个zip格式压缩包
 ~~~
 
 
-#RPM 包 - （Fedora, Redhat及类似系统） 
+# RPM 包 - （Fedora, Redhat及类似系统） 
 ~~~shell
 rpm -ivh package.rpm 安装一个rpm包 
 rpm -ivh --nodeeps package.rpm 安装一个rpm包而忽略依赖关系警告 
@@ -219,7 +219,7 @@ rpm -ivh /usr/src/redhat/RPMS/`arch`/package.rpm 从一个rpm源码安装一个�
 rpmbuild --rebuild package_name.src.rpm 从一个rpm源码构建一个 rpm 包 
 ~~~
 
-#YUM 软件包升级器 - （Fedora, RedHat及类似系统） 
+# YUM 软件包升级器 - （Fedora, RedHat及类似系统） 
 ~~~shell
 yum install package_name 下载并安装一个rpm包 
 yum localinstall package_name.rpm 将安装一个rpm包，使用你自己的软件仓库为你解决所有依赖关系 
@@ -234,7 +234,7 @@ yum clean all 删除所有缓存的包和头文件
 ~~~
 
 
-#DEB 包 (Debian, Ubuntu 以及类似系统) 
+# DEB 包 (Debian, Ubuntu 以及类似系统) 
 ~~~shell
 dpkg -i package.deb 安装/更新一个 deb 包 
 dpkg -r package_name 从系统删除一个 deb 包 
@@ -260,7 +260,7 @@ apt-cache search searched-package 返回包含所要搜索字符串的软件包�
 ~~~
 
 
-#查看文件内容 
+# 查看文件内容 
 ~~~shell
 cat file1 从第一个字节开始正向查看文件的内容 
 tac file1 从最后一行开始反向查看一个文件的内容 
@@ -272,7 +272,7 @@ tail -f /var/log/messages 实时查看被添加到一个文件中的内容
 ~~~
 
 
-#文本处理 
+# 文本处理 
 ~~~shell
 cat file1 file2 ... | command <> file1_in.txt_or_file1_out.txt general syntax for text manipulation using PIPE, STDIN and STDOUT 
 cat file1 | command( sed, grep, awk, grep, etc...) > result.txt 合并一个文件的详细说明文本，并将简介写入一个新文件中 
@@ -308,7 +308,7 @@ comm -3 file1 file2 比较两个文件的内容只删除两个文件共有的部
 ~~~
 
 
-#字符设置和文件格式转换 
+# 字符设置和文件格式转换 
 ~~~shell
 dos2unix filedos.txt fileunix.txt 将一个文本文件的格式从MSDOS转换成UNIX 
 unix2dos fileunix.txt filedos.txt 将一个文本文件的格式从UNIX转换成MSDOS 
@@ -317,7 +317,7 @@ recode -l | more 显示所有允许的转换格式
 ~~~
 
 
-#文件系统分析 
+# 文件系统分析 
 ~~~shell
 badblocks -v /dev/hda1 检查磁盘hda1上的坏磁块 
 fsck /dev/hda1 修复/检查hda1磁盘上linux文件系统的完整性 
@@ -331,7 +331,7 @@ dosfsck /dev/hda1 修复/检查hda1磁盘上dos文件系统的完整性
 ~~~
 
 
-#初始化一个文件系统 
+# 初始化一个文件系统 
 ~~~shell
 mkfs /dev/hda1 在hda1分区创建一个文件系统 
 mke2fs /dev/hda1 在hda1分区创建一个linux ext2的文件系统 
@@ -342,7 +342,7 @@ mkswap /dev/hda3 创建一个swap文件系统
 ~~~
 
 
-#SWAP文件系统 
+# SWAP文件系统 
 ~~~shell
 mkswap /dev/hda3 创建一个swap文件系统 
 swapon /dev/hda3 启用一个新的swap文件系统 
@@ -350,7 +350,7 @@ swapon /dev/hda2 /dev/hdb3 启用两个swap分区
 ~~~
 
 
-#备份 
+# 备份 
 ~~~shell
 dump -0aj -f /tmp/home0.bak /home 制作一个 '/home' 目录的完整备份 
 dump -1aj -f /tmp/home0.bak /home 制作一个 '/home' 目录的交互式备份 
@@ -372,7 +372,7 @@ dd if=/dev/fd0 of=/dev/hda bs=512 count=1 从已经保存到软盘的备份中�
 ~~~
 
 
-#网络 - （以太网和WIFI无线） 
+# 网络 - （以太网和WIFI无线） 
 ~~~shell
 ifconfig eth0 显示一个以太网卡的配置 
 ifup eth0 启用一个 'eth0' 网络设备 
